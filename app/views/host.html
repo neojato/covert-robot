@@ -1,0 +1,129 @@
+<div ng-if="quiz.state === 'waiting'">
+  <md-card flex>
+    <md-card-content style="text-align: center;">
+      <h1>Join the quiz!</h1>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button class="md-raised md-primary" ng-click="startQuiz()">Let's Begin!</md-button>
+    </md-card-actions>
+  </md-card>
+  <md-card flex>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">Who's here:</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <md-list flex>
+        <md-list-item ng-repeat="player in quiz.users">
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ $index+1 }}. {{ player.screenName }}</h3>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+</div>
+
+<div ng-if="quiz.state === 'preQuestion'">
+  <md-card flex>
+    <md-card-content style="text-align: center;">
+      <h1>Next question will be displayed<br/>in {{ countdown }} seconds...</h1>
+    </md-card-content>
+  </md-card>
+</div>
+
+<div ng-if="quiz.state === 'question'">
+  <md-card flex>
+    <md-card-content>
+      <h1>{{ currentQuestion.question }}</h1>
+      <h2><span style="color: #f44336;">{{ countdown }}</span> second<span ng-if="countdown !== 1">s</span> left...</h2>
+    </md-card-content>
+  </md-card>
+</div>
+
+<div ng-if="quiz.state === 'postQuestion'">
+  <div layout="column">
+    <div layout="row">
+      <md-card flex>
+        <md-card-content>
+          <h1>And the correct answer is...</h1>
+          <h2 style="color: #4CAF50;">{{ currentQuestion.answer }}</h2>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-primary" ng-if="quiz.currentQuestion != quiz.questions.length - 1" ng-click="nextQuestion()">Next Question</md-button>
+          <md-button class="md-raised md-primary" ng-if="quiz.currentQuestion == quiz.questions.length - 1" ng-click="endQuiz()">End Quiz</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+    <div layout="row">
+      <md-card flex="50">
+        <img ng-src="/images/{{ currentQuestion.image }}" class="md-card-image" title="Correct Answer" alt="Correct Answer" />
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Correct answer<span ng-if="correct.length != 1">s</span> by:</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <md-list ng-if="correct.length != 0" flex>
+            <md-list-item ng-repeat="user in correct">
+              <div class="md-list-item-text" layout="column">
+                <h3>{{ user }}</h3>
+              </div>
+            </md-list-item>
+          </md-list>
+          <h3 ng-if="correct.length == 0">Nobody 😭</h3>
+        </md-card-content>
+      </md-card>
+      <md-card flex="50">
+        <img src="/images/wrong.gif" class="md-card-image" title="Wrong Answer" alt="Wrong Answer" />
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Wrong answer<span ng-if="wrong.length != 1">s</span> by:</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <md-list ng-if="wrong.length != 0" flex>
+            <md-list-item ng-repeat="user in wrong">
+              <div class="md-list-item-text" layout="column">
+                <h3>{{ user }}</h3>
+              </div>
+            </md-list-item>
+          </md-list>
+          <h3 ng-if="wrong.length == 0">Nobody 😃</h3>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>
+
+<div ng-if="quiz.state === 'leaderboard'">
+  <md-card flex>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">Leaderboard</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <md-list flex>
+        <md-list-item ng-repeat="user in leaderboard | orderBy:'currentPoints':true">
+          <div class="md-list-item-text" layout="column">
+            <h2>
+              {{ user.screenName }}
+              <span class="md-secondary">{{ user.currentPoints }}</span>
+            </h2>
+          </div>
+        </md-list-item>
+        <md-divider></md-divider>
+      </md-list>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button class="md-raised md-primary" ng-click="startOver()">Start Over</md-button>
+    </md-card-actions>
+  </md-card>
+</div>
+
+<!-- FOOTER -->
+<footer hide-md hide-lg class="footer">
+  &copy; 2016 &bull; GDG Kansas City &bull; Google fiber
+</footer>

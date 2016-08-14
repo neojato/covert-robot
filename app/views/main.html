@@ -1,0 +1,16 @@
+<md-card flex="90">
+  <img src="images/TEDxKC.png" class="md-card-image" title="TEDx KC" alt="TEDx KC" />
+  <md-card-content style="text-align: center;">
+    <h1>Welcome TEDx KC!</h1>
+    <p>Let's question everything with a fun quiz!</p>
+  </md-card-content>
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button class="md-raised md-primary" ng-if="!main.creatingQuiz" ng-click="main.newQuiz()">Start New Quiz</md-button>
+    <md-button class="md-raised md-primary" ng-if="main.creatingQuiz" ng-disabled="true">Creating Quiz...</md-button>
+  </md-card-actions>
+</md-card>
+
+<!-- FOOTER -->
+<footer hide-md hide-lg class="footer">
+  &copy; 2016 &bull; GDG Kansas City &bull; Google fiber
+</footer>

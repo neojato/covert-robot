@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <base href="/" />
+  <meta charset="utf-8">
+  <title>covert-robot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="application-name" content="covert-robot">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" sizes="16x16 32x32" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="covertRobotApp" ng-controller="MainCtrl as main" layout="column" ng-cloak>
+  <!--[if lte IE 9]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <div layout="column" layout-fill>
+    <md-toolbar md-whiteframe="2">
+      <div class="md-toolbar-tools">
+        <div layout="row">
+          <img src="images/googlefiber_white.png" style="width: 110px; height: 23px;" title="Google Fiber" alt="Google Fiber" />
+        </div>
+        <span flex></span>
+        <div layout="row">
+          <img src="images/gdg_icon.png" style="width: 35px; height: 38px;" title="GDG Kansas City" alt="GDG Kansas City" />
+          <h2 style="margin: auto; top: 0; bottom: 0; left: 0; right: 0;">GDG KC</h2>
+        </div>
+      </div>
+    </md-toolbar>
+
+    <md-content id="main-content" layout="row" flex>
+      <div flex-xs="100" flex-sm="100" flex="50" flex-offset-gt-sm="25" ng-view=""></div>
+    </md-content>
+
+    <!-- FOOTER -->
+    <footer hide-xs hide-sm class="footer">
+      &copy; {{ main.copyright }} &bull; GDG Kansas City &bull; Google fiber
+    </footer>
+  </div>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(function(reg){
+          console.log("Register Service Worker.");
+        }).catch(function(err) {
+          console.log("Failed to register Service Worker. Error: ", err)
+        });
+    }
+  </script>
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/host.js"></script>
+  <script src="scripts/controllers/player.js"></script>
+  <script src="scripts/services/host.js"></script>
+  <script src="scripts/services/quiz.js"></script>
+  <script src="scripts/services/player.js"></script>
+  <!-- endbuild -->
+</body>
+</html>

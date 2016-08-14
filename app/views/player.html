@@ -1,0 +1,87 @@
+<div layout="column" layout-fill>
+  <div layout="row" flex>
+    <div ng-if="quiz.state === 'joinQuiz'" flex>
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Hi there!</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content style="text-align: center;">
+          <h1>Are you ready to question everything?</h1>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-primary" ng-if="!joining" ng-click="join(currentQuiz[0].$id)">Join Quiz</md-button>
+          <md-button class="md-raised md-primary" ng-if="joining" ng-disabled="true">Joining Quiz...</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+
+    <div ng-if="quiz.state === 'waiting'" flex>
+      <md-card>
+        <md-card-content style="text-align: center;">
+        <h1>Hi {{ quiz.users[playerId].screenName }}!</h1>
+        <h3>We're waiting for everyone else to join.</h3>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div ng-if="quiz.state === 'preQuestion'" flex>
+      <md-card>
+        <md-card-content style="text-align: center;">
+          <h2>Heads up! The next question will be displayed on the main screen real soon!</h2>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div ng-if="quiz.state === 'question'" flex>
+      <md-card ng-repeat="answer in quiz.possibleAnswers" ng-click="saveAnswer(answer)">
+        <md-card-content style="text-align: center;" ng-style="{'background-color': quiz.users[playerId].answer === answer ? '#2196F3' : '#FFF'}">
+          <h3 ng-style="{'color': quiz.users[playerId].answer === answer ? '#FFF' : '#000'}">
+            {{ answer }}
+          </h3>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div ng-if="quiz.state === 'postQuestion'" flex>
+      <md-card>
+        <img src="/images/{{ currentQuestion.image }}" class="md-card-image" ng-if="quiz.users[playerId].answer === currentQuestion.answer" title="Correct Answer" alt="Correct Answer" />
+        <img src="/images/wrong.gif" class="md-card-image" ng-if="quiz.users[playerId].answer !== currentQuestion.answer" title="Wrong Answer" alt="Wrong Answer" />
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline" ng-if="quiz.users[playerId].answer === currentQuestion.answer">Correct Answer!</span>
+            <span class="md-headline" ng-if="quiz.users[playerId].answer !== currentQuestion.answer">Wrong Answer!</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <h2>You have {{ quiz.users[playerId].currentPoints || 0 }} points.</h2>
+          <span ng-if="quiz.users[playerId].answer !== currentQuestion.answer">
+            The correct answer is: <span style="color: #4CAF50;">{{ currentQuestion.answer }}</span>
+          </span>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div ng-if="quiz.state === 'leaderboard'" flex>
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Quiz Over!</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content style="text-align: center;">
+          <h1>Thanks for playing!</h1>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-primary" ng-click="startOver()">Start Over</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer hide-md hide-lg class="footer" layout="row">
+    &copy; 2016 &bull; GDG Kansas City &bull; Google fiber
+  </footer>
+</div>
