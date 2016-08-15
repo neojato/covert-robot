@@ -5,7 +5,9 @@
     "quiz": {
       ".indexOn": "state",
       "$quizId": {
-        ".indexOn": "screenName"
+        "users": {
+          ".indexOn": "screenName"
+        }
       }
     }
   }
