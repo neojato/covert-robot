@@ -11,7 +11,7 @@
           <h1>Are you ready to question everything?</h1>
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-primary" ng-if="!joining" ng-click="join(currentQuiz[0].$id)">Join Quiz</md-button>
+          <md-button class="md-raised md-primary" ng-if="!joining" ng-click="join($event, currentQuiz[0].$id)">Join Quiz</md-button>
           <md-button class="md-raised md-primary" ng-if="joining" ng-disabled="true">Joining Quiz...</md-button>
         </md-card-actions>
       </md-card>
