@@ -61,7 +61,11 @@ angular.module('covertRobotApp')
       // get unique id from cookie store & connect
       self.getUniqueId();
       self.PIN = PIN;
-      return self._connect();
+      if (PIN) {
+        return self._connect();
+      } else {
+        return false;
+      }
     };
 
     self.selfSave = function (attr, val) {

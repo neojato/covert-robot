@@ -8,7 +8,7 @@
  * Controller of the covertRobotApp
  */
 angular.module('covertRobotApp')
-  .controller('PlayerCtrl', function ($scope, $location, $routeParams, $firebaseAuth, $firebaseArray, PlayerService) {
+  .controller('PlayerCtrl', function ($scope, $location, $routeParams, $firebaseAuth, $firebaseArray, $mdDialog, PlayerService) {
     var ref = firebase.database().ref();
 
     $scope.currentQuiz = $firebaseArray(ref.child('quiz').orderByChild('state').equalTo('waiting'));
@@ -38,12 +38,26 @@ angular.module('covertRobotApp')
       });
     }
     
-    $scope.join = function (PIN) {
+    $scope.join = function (ev, PIN) {
       $scope.joining = true;
-      PlayerService.join(PIN)
-      .then(function () {
-        $location.path('/player/' + PIN);
-      });
+      if (PIN) {
+        PlayerService.join(PIN)
+        .then(function () {
+          $location.path('/player/' + PIN);
+        });
+      } else {
+        $scope.joining = false;
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#main-content')))
+            .clickOutsideToClose(true)
+            .title('Whoops!')
+            .textContent('It doesn\'t look like a quiz has started yet. Please wait for the host to join.')
+            .ariaLabel('Too Early Alert')
+            .ok('Got it!')
+            .targetEvent(ev)
+        );
+      }
     };
     
     $scope.saveAnswer = function (answer) {
