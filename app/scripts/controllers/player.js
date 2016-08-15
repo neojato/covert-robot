@@ -11,10 +11,9 @@ angular.module('covertRobotApp')
   .controller('PlayerCtrl', function ($scope, $location, $routeParams, $firebaseAuth, $firebaseArray, $mdDialog, PlayerService) {
     var ref = firebase.database().ref();
 
-    $scope.currentQuiz = $firebaseArray(ref.child('quiz').orderByChild('state').equalTo('waiting'));
-
     $firebaseAuth().$signInAnonymously().then(function (firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
+      $scope.currentQuiz = $firebaseArray(ref.child('quiz').orderByChild('state').equalTo('waiting'));
     }).catch(function(error) {
       console.error("Authentication failed:", error);
     });
