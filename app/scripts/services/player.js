@@ -17,10 +17,12 @@ angular.module('covertRobotApp')
     self.getUniqueId = function () {
       // generate a unique identifier for the player and save it in a cookie to allow refreshes
       if ($cookieStore.get('playerId')) {
-        return self._id = $cookieStore.get('playerId');
+        self._id = $cookieStore.get('playerId');
+        return self._id;
       } else {
         $cookieStore.put('playerId', _.random(0, 999999999));
-        return self._id = $cookieStore.get('playerId');
+        self._id = $cookieStore.get('playerId');
+        return self._id;
       }
     };
 

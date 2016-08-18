@@ -12,10 +12,10 @@ angular.module('covertRobotApp')
     var ref = firebase.database().ref();
 
     $firebaseAuth().$signInAnonymously().then(function (firebaseUser) {
-      console.log("Signed in as:", firebaseUser.uid);
+      console.log('Signed in as:', firebaseUser.uid);
       $scope.currentQuiz = $firebaseArray(ref.child('quiz').orderByChild('state').equalTo('waiting'));
     }).catch(function(error) {
-      console.error("Authentication failed:", error);
+      console.error('Authentication failed:', error);
     });
     
     if (!$routeParams.hasOwnProperty('PIN')) {
