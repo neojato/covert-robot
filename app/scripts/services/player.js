@@ -38,7 +38,7 @@ angular.module('covertRobotApp')
 
       // test if username already selected
       var userExists = $firebaseArray(ref.child('quiz').child(PIN).child('users').orderByChild('screenName').equalTo(self.screenName));
-      userExists.$loaded().then(function () {
+      return userExists.$loaded().then(function () {
         if (userExists.length > 0) {
           var temp = users.splice(users.indexOf(self.screenName), self.screenName.length);
           self.screenName = _.sample(temp);
