@@ -36,24 +36,26 @@ angular.module('covertRobotApp')
 
       // test if username already selected
       var userExists = $firebaseArray(ref.child('quiz').child(PIN).child('users').orderByChild('screenName').equalTo(self.screenName));
-      if (userExists.length > 0) {
-        users.splice(users.indexOf(self.screenName), self.screenName.length);
-        self.screenName = _.sample(users);
-      }
-
-      return self._connect()
-      .then(function () {
-        // create 'users' node if it doesn't exist
-        if (!_obj.hasOwnProperty('users')) {
-          _obj.users = {};
+      userExists.$loaded().then(function () {
+        if (userExists.length > 0) {
+          var temp = users.splice(users.indexOf(self.screenName), self.screenName.length);
+          self.screenName = _.sample(temp);
         }
 
-        // register player
-        _obj.users[self.getUniqueId()] = {
-          screenName: self.screenName
-        };
+        return self._connect()
+        .then(function () {
+          // create 'users' node if it doesn't exist
+          if (!_obj.hasOwnProperty('users')) {
+            _obj.users = {};
+          }
 
-        return _obj.$save();
+          // register player
+          _obj.users[self.getUniqueId()] = {
+            screenName: self.screenName
+          };
+
+          return _obj.$save();
+        });
       });
     };
 
