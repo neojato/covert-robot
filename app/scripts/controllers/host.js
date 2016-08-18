@@ -8,7 +8,7 @@
  * Controller of the covertRobotApp
  */
 angular.module('covertRobotApp')
-  .controller('HostCtrl', function ($scope, $routeParams, $location, $interval, $timeout, _, $firebaseArray, $firebaseObject, HostService, QuizService) {
+  .controller('HostCtrl', function ($scope, $routeParams, $location, $interval, $timeout, _, HostService, QuizService) {
     var betweenCounter = 5,
         questionCounter = 15;
 
@@ -27,6 +27,7 @@ angular.module('covertRobotApp')
           
           case 'question':
             $scope.currentQuestion = HostService.getCurrentQuestion();
+            $scope.currentQuestionNumber = HostService.getCurrentQuestionNumber();
             $scope.quiz.possibleAnswers = QuizService.getPossibleAnswers($scope.currentQuestion);
             $timeout(function () {
               $scope.startCountDown(questionCounter, 'postQuestion')

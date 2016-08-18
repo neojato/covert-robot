@@ -36,7 +36,7 @@
 <div ng-if="quiz.state === 'question'">
   <md-card flex>
     <md-card-content>
-      <h1>{{ currentQuestion.question }}</h1>
+      <h1>#{{ currentQuestionNumber+1 }}: {{ currentQuestion.question }}</h1>
       <h2><span style="color: #f44336;">{{ countdown }}</span> second<span ng-if="countdown !== 1">s</span> left...</h2>
     </md-card-content>
   </md-card>

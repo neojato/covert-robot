@@ -31,6 +31,10 @@ angular.module('covertRobotApp')
       return _obj.questions[_obj.currentQuestion];
     };
     
+    self.getCurrentQuestionNumber = function () {
+      return _obj.currentQuestion;
+    };
+    
     self.setQuizState = function (state) {
       _obj.state = state;
       return _obj.$save();
