@@ -9,7 +9,7 @@
  */
 angular.module('covertRobotApp')
   .controller('HostCtrl', function ($scope, $routeParams, $location, $interval, $timeout, _, HostService, QuizService) {
-    var betweenCounter = 5,
+    var betweenCounter = 3,
         questionCounter = 15;
 
     HostService.init($routeParams.PIN)
