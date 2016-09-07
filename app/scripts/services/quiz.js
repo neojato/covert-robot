@@ -41,8 +41,8 @@ angular.module('covertRobotApp')
       image: 'Q6.jpg'
     },{
       question: 'When were they founded?',
-      wrong: ['200,000','1,000,000+','53,000'],
-      answer: 'None',
+      wrong: ['1996','1994','1998'],
+      answer: '1995',
       image: 'Q7.gif'
     },{
       question: 'Name two players that are home-grown players?',
