@@ -10,65 +10,45 @@
 angular.module('covertRobotApp')
   .service('QuizService', function (_) {
     var questions = [{
-      question: 'What type of animal, when in a group, is called a “Rhumba”?',
-      wrong: ['Panda','Flamingo','Elephant'],
-      answer: 'Rattlesnake',
+      question: 'Name the two Sporting Kansas City players who represented the United States in the 2014 World Cup',
+      wrong: ['Matt Besler and Dom Dwyer','Grahman Zusi and Benny Feilhaber','Dom Dwyer and Ike Opara'],
+      answer: 'Matt Besler and Graham Zusi',
       image: 'Q1.gif'
     },{
-      question: 'Which animal babies, when born, are larger than their mother?',
-      wrong: ['Rats','Flies','Bees'],
-      answer: 'Paradoxical Frog',
-      image: 'Q2.gif'
+      question: 'What was the original name of the soccer team we now know as Sporting Kansas City?',
+      wrong: ['Kansas City Wizards','Sporting Kansas City','Missouri Wizards'],
+      answer: 'The Wiz',
+      image: 'Q2.png'
     },{
-      question: 'Which land mammals have no vertical leap?',
-      wrong: ['Bears','Giraffe','Koala'],
-      answer: 'Elephant',
-      image: 'Q3.gif'
+      question: 'How many times has the Sporting KC club won the MLS cup (including under their previous names)?',
+      wrong: ['Once in 2000','Once in 2013','Twice. In 2001 and 2008'],
+      answer: 'Twice. In  2000 and 2013',
+      image: 'Q3.jpg'
     },{
-      question: 'Which animals use their own sweat as sunscreen?',
-      wrong: ['Beavers','Lemurs','Horses'],
-      answer: 'Hippos',
+      question: 'Which of these elements does not inspire the KC current logo?',
+      wrong: ['Asclepius Rod that represents health and fitness','A Greek statue called the Winged Victory of the Samothrace','Lines on the badge replicate the state lines of Kansas and Missouri'],
+      answer: 'Armour shape to show camaraderie towards the Kansas City Knights',
       image: 'Q4.gif'
     },{
-      question: 'Typically, how long do male lions sleep?',
-      wrong: ['5 hours a day','8 hours a day','15 hours a day'],
-      answer: '20 hours a day',
+      question: 'Which is the correct chronological naming order for the team?',
+      wrong: ['Kansas CIty Wizards, Wiz, Sporting Kansas City','Sporting Kansas City, Wiz, Kansas City Wizards','Kansas City Wizards, Sporting Kansas City, Wiz'],
+      answer: 'Wiz, Kansas City Wizards , Sporting Kansas City',
       image: 'Q5.gif'
     },{
-      question: 'Which of these have blue blood?',
-      wrong: ['Jellyfish','Starfish','Sea Urchins'],
-      answer: 'Octopus',
+      question: 'When was their first game?',
+      wrong: ['April 5, 2000','April 10th, 1990','April 8th, 1998'],
+      answer: 'April 13th ,1996',
       image: 'Q6.jpg'
     },{
-      question: 'How many knights are buried in British graveyards?',
+      question: 'When were they founded?',
       wrong: ['200,000','1,000,000+','53,000'],
       answer: 'None',
       image: 'Q7.gif'
     },{
-      question: 'How many senses does the human body have?',
-      wrong: ['5','4','7'],
-      answer: '9+',
+      question: 'Name two players that are home-grown players?',
+      wrong: ['Graham Zusi and Daniel Salloi','Diego Rubio and Cameron Porter','Jacob Peterson and Ike Opara'],
+      answer: 'Matt Besler and Kevin Ellis',
       image: 'Q8.gif'
-    },{
-      question: 'Goldfish can remember up to __________',
-      wrong: ['5 seconds','3 minutes','6 hours'],
-      answer: '5 months',
-      image: 'Q9.gif'
-    },{
-      question: 'What color fur does a polar bear have?',
-      wrong: ['White','Grey','Light Tan'],
-      answer: 'Clear',
-      image: 'Q10.gif'
-    },{
-      question: 'What office supply item would you use to defend yourself against an alligator?',
-      wrong: ['A Pen','White-Out','A Post-it Note'],
-      answer: 'A rubber band',
-      image: 'Q11.gif'
-    },{
-      question: 'Can women smell fear?',
-      wrong: ['No','Maybe?','Football'],
-      answer: 'Yes',
-      image: 'Q12.gif'
     }];
 
     var get = function () {
