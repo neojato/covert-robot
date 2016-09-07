@@ -12,7 +12,7 @@ angular.module('covertRobotApp')
     var self = this,
         ref = firebase.database().ref(),
         _obj,
-        users = ['Ginger Spice','Justin Bieber','Beyonce','Hulk','Wonder Woman','Inigo Montoya','Brie Larson','Homer Simpson'];
+        users = ['Dom Dwyer','Matt Besler','Graham Zusi','Tim Melia'];
     
     self.getUniqueId = function () {
       // generate a unique identifier for the player and save it in a cookie to allow refreshes
