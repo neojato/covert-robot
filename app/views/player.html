@@ -81,7 +81,7 @@
   </div>
 
   <!-- FOOTER -->
-  <footer hide-md hide-lg class="footer" layout="row">
-    &copy; 2016 &bull; GDG Kansas City &bull; Google fiber
+  <footer ng-controller="MainCtrl as main" hide-gt-sm class="footer" layout="row">
+    &copy; {{ main.copyright }} &bull; GDG Kansas City &bull; Google fiber
   </footer>
 </div>
