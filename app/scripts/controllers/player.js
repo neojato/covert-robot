@@ -65,5 +65,5 @@ angular.module('covertRobotApp')
 
     $scope.startOver = function () {
       $location.path('/player');
-    }
+    };
   });

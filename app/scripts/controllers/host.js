@@ -22,7 +22,7 @@ angular.module('covertRobotApp')
         switch (newValue) {
           case 'preQuestion':
             $scope.startCountDown(betweenCounter, 'question');
-            $scope.quiz.possibleAnswers = []
+            $scope.quiz.possibleAnswers = [];
             break;
           
           case 'question':
@@ -30,7 +30,7 @@ angular.module('covertRobotApp')
             $scope.currentQuestionNumber = HostService.getCurrentQuestionNumber();
             $scope.quiz.possibleAnswers = QuizService.getPossibleAnswers($scope.currentQuestion);
             $timeout(function () {
-              $scope.startCountDown(questionCounter, 'postQuestion')
+              $scope.startCountDown(questionCounter, 'postQuestion');
             }, 100);
             break;
           
