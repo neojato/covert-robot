@@ -25,8 +25,7 @@ angular
     'ngSanitize',
     'firebase',
     'underscore',
-    'ngMaterial',
-    'ngRaven'
+    'ngMaterial'
   ])
   .config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
     // Firebase Config
