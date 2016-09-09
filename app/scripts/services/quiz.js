@@ -11,8 +11,8 @@ angular.module('covertRobotApp')
   .service('QuizService', function (_) {
     var questions = [{
       question: 'Name the two Sporting Kansas City players who represented the United States in the 2014 World Cup',
-      wrong: ['Matt Besler and Dom Dwyer','Grahman Zusi and Benny Feilhaber','Dom Dwyer and Ike Opara'],
-      answer: 'Matt Besler and Graham Zusi',
+      wrong: ['Matt Besler & Dom Dwyer','Grahman Zusi & Benny Feilhaber','Dom Dwyer & Ike Opara'],
+      answer: 'Matt Besler & Graham Zusi',
       image: 'Q1.gif'
     },{
       question: 'What was the original name of the soccer team we now know as Sporting Kansas City?',
@@ -25,14 +25,14 @@ angular.module('covertRobotApp')
       answer: 'Twice. In  2000 and 2013',
       image: 'Q3.jpg'
     },{
-      question: 'Which of these elements does not inspire the KC current logo?',
-      wrong: ['Asclepius Rod that represents health and fitness','A Greek statue called the Winged Victory of the Samothrace','Lines on the badge replicate the state lines of Kansas and Missouri'],
-      answer: 'Armour shape to show camaraderie towards the Kansas City Knights',
-      image: 'Q4.gif'
-    },{
+    //   question: 'Which of these elements does not inspire the KC current logo?',
+    //   wrong: ['Asclepius Rod that represents health and fitness','A Greek statue called the Winged Victory of the Samothrace','Lines on the badge replicate the state lines of Kansas and Missouri'],
+    //   answer: 'Armour shape to show camaraderie towards the Kansas City Knights',
+    //   image: 'Q4.gif'
+    // },{
       question: 'Which is the correct chronological naming order for the team?',
-      wrong: ['Kansas CIty Wizards, Wiz, Sporting Kansas City','Sporting Kansas City, Wiz, Kansas City Wizards','Kansas City Wizards, Sporting Kansas City, Wiz'],
-      answer: 'Wiz, Kansas City Wizards , Sporting Kansas City',
+      wrong: ['KC Wizards, Wiz, Sporting KC','Sporting KC, Wiz, KC Wizards','KC Wizards, Sporting KC, Wiz'],
+      answer: 'Wiz, KC Wizards, Sporting KC',
       image: 'Q5.gif'
     },{
       question: 'When was their first game?',
@@ -46,8 +46,8 @@ angular.module('covertRobotApp')
       image: 'Q7.gif'
     },{
       question: 'Name two players that are home-grown players?',
-      wrong: ['Graham Zusi and Daniel Salloi','Diego Rubio and Cameron Porter','Jacob Peterson and Ike Opara'],
-      answer: 'Matt Besler and Kevin Ellis',
+      wrong: ['Graham Zusi & Daniel Salloi','Diego Rubio & Cameron Porter','Jacob Peterson & Ike Opara'],
+      answer: 'Matt Besler & Kevin Ellis',
       image: 'Q8.gif'
     }];
 
